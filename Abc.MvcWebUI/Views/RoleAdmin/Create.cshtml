@@ -1,0 +1,21 @@
+﻿@model string
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container pb-5">
+    <h2>Yetki Oluştur</h2>
+    <hr />
+    @Html.ValidationSummary()
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            <label>Yetki Adı Giriniz</label>
+            <input name="name" value="@Model" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Oluştur</button>
+    }
+</div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

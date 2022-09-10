@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Abc.MvcWebUI.Identity.ApplicationUser>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container pb-5">
+    <h2>Kullanıcı Listesi</h2>
+    <hr />
+    <p>
+        @Html.ActionLink("Yeni Kullanıcı", "../Account/Register", null, new { @class = "btn btn-primary" })
+    </p>
+    <hr />
+    <table class="table table-bordered table-striped">
+        <tr>
+    <th>
+        Kullanıcı Adı
+    </th>
+    <th>
+        Adı
+    </th>
+    <th>
+        Soyadı
+    </th>
+    <th>
+        E-Mail
+    </th>
+    <th>
+        @*Rolü*@
+    </th>
+    <th style="width: 135px;"></th>
+</tr>  
+        
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3" class="text-center">
+                    Kullanıcı Yok
+                </td>
+            </tr>
+        }
+        else
+        { 
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                     @item.UserName
+                </td>
+                <td>
+                     @item.Name
+                </td>
+                <td>
+                     @item.Surname
+                </td>
+                <td>
+                     @item.Email
+                </td>     
+                <td>
+                     @Html.ActionLink("Güncelle", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                     @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+        }
+    </table>
+</div>
+

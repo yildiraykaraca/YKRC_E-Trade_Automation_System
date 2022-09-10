@@ -1,0 +1,24 @@
+﻿@using Abc.MvcWebUI.Models;
+@model IEnumerable<ProductModel>
+@{
+    ViewBag.Title = "Anasayfa | YKRC";
+}
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3"><b>YKRC E-TRADE</b>'e <b>Hoşgeldiniz...</b> </h1>
+        <p class="lead"><br />Bu Site Asp.NET MVC Teknolojisi Kullanılarak Yıldıray Karaca Tarafından Yapılmıştır.</p>
+        <hr class="my-4">
+        <p>Bu sistemdeki satılan ürünler gerçek değildir ve bu mevcut sistemin yapılış amacı SİSTEM ANALİZİ VE TASARIMI Dersi içindir...</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="/Home/List" role="button"> Ürünleri İncele</a>
+        </p>
+    </div>
+</div>
+
+
+<div class="container pb-5">
+    @Html.Partial("_ProductList", Model)
+</div>
+
+
+

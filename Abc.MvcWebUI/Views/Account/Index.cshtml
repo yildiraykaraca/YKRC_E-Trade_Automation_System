@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Abc.MvcWebUI.Models.UserOrderModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container" id="printDiv">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Sipariş Bilgileriniz</h2>
+            <hr />
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Sipariş Numarası</th>
+                        <th>Sipariş Tarihi</th>
+                        <th>Genel Toplam</th>
+                        <th>Sipariş Durumu</th>
+                        <th>Sipariş Detay Bilgileri</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.OrderNumber</td>
+                            <td>@item.OrderDate.ToShortDateString()</td>
+                            <td>
+                                <i class="fa fa-try" aria-hidden="true"></i>
+                                @item.Total
+                            </td>
+                            <td>@item.OrderState</td>
+                            <td>
+                                @Html.ActionLink("Sipariş Detayları", "Details", new { id = @item.Id }, new { @class = "btn btn-primary" })
+                            </td>
+                                <td>
+                                <a href="#" onclick="PrintFunction('#printDiv')" target="_blank" class="btn btn-warning"><i class="fa fa-print"></i>Yazdır</a>
+                            </td>
+                         
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        document.getElementById("printDiv").style.visibility = "hidden";
+    });
+    function PrintFunction(div) {
+        document.getElementById("printDiv").style.visibility = "visible";
+        Popup($(div).html());
+    }
+    function Popup(data) {
+        var printwindow = window.open('', 'printDiv')
+        printwindow.document.write('<html><head><title></title>');
+        printwindow.document.write('</head><body>');
+        printwindow.document.write(data);
+        printwindow.document.write('</body></html>');
+        printwindow.document.close();
+        document.getElementById("printDiv").style.visibility = "hidden";
+        printwindow.focus();
+        printwindow.print();
+        printwindow.close();
+        document.getElementById("printDiv").style.visibility = "hidden";
+    }
+</script>

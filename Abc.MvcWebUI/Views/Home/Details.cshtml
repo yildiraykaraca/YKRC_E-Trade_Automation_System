@@ -1,0 +1,115 @@
+﻿@using Abc.MvcWebUI.Entity;
+@model Product
+
+@{
+    ViewBag.Title = "Ürün Detayları | YKRC";
+}
+<div id="product-details" class="container pb-5">
+    <div class="row">
+
+        <div class="col-md-6">
+            <img src="/Upload/@Model.Image" class="img-fluid rounded ">
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>@Model.Name</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    @if (Model.IsApproved)
+                    {
+                        <span class="badge badge-primary">Stokta</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">Stokta Yok</span>
+                    }
+                    
+                    <span class="product-number">#2365656</span>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <div id="description" class="readmore">
+                        @Model.Description
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <span class="badge badge-success">53</span>
+                </div>
+                <div id="write-review" class="col-md-4">
+                    <a href="#">
+                        Write a review
+                    </a>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <h4 id="product-price">@Model.Price TL</span>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    
+                    @using (Html.BeginForm("AddToCart","Cart"))
+                    {
+                        @Html.HiddenFor(i=>i.Id)
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                            Add To Cart
+                        </button>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="bd-example bd-example-tabs">
+                <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true">Açıklama</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-payment-tab" data-toggle="pill" href="#pills-payment" role="tab" aria-controls="pills-payment" aria-expanded="true">Ödeme Yolları </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-comment-tab" data-toggle="pill" href="#pills-comment" role="tab" aria-controls="pills-comment" aria-expanded="true">Hakkımızda</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+                        <p>YKRC Ürünleri Gerçek Değildir bu Ürünler ve bu Sistem SİSTEM ANALİZİ VE TASARIMI Dersi İçin Eklenmiştir...</p>
+                    </div>
+                    <div class="tab-pane fade" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
+                        <p>Kredi Kartı ile Ödeme
+
+Bir E-Ticaret sitesinin en çok tercih edilen, olmazsa olmaz diyebileceğimiz ve en hızlı ödeme alma yöntemleri arasında bulunan ödeme yöntemi hiç şüphesiz kredi kartı ile ödeme alma yöntemidir. Alıcı, kredi kartı bilgilerini girerek, E-Ticaret sitesi sahibi için en temel mesele olan ödeme alımı konusunu saniyeler içinde gerçekleştirmiş olur.
+
+Kredi kartı ile ödeme almak için bankaların tek tek sanal poslarını almak ve bankalar ile anlaşmalı online ödeme alma sistemlerinden birini kullanmak gibi 2 seçenek bulunmaktadır. Bu iki seçenek içinde sahip olunması gereken temel kural şirket olmaktır.
+
+Bankalardan tek tek sanal pos almak hem uğraştırıcı hem de maliyetli bir süreçtir. Çünkü şubelere gidip belgelerin teslimi, onay verilmesi ve entegrasyon sürecinin yanı sıra, her bir bankaya 600 TL civarı ücret ödeme söz konusudur. Fakat yüksek satış hacmine sahip E-Ticaret siteleri için daha az komisyon ödeme durumu söz konusu olacağından uzun vadede daha karlıdır.
+
+</p>
+                    </div>
+                    <div class="tab-pane fade" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">
+                        <p>1997 YILINDA DÜNYAYA GELDİM PROGRAMLAMAYA GEÇ YAŞTA BAŞLADIM VE İLERLEME KAT ETMEYE ÇALIŞIYORUM ŞİMDİYE KADAR ÇALIŞMIŞ OLDUĞUM GELİŞTİRİCİLER, DİL Hepsinin SIRALAMASI: C#, JAVA, MATLAB, ARDUINO,, BUNLARA EK OLARAK İSE HTML, CSS, JAVASCRIPT, BOOTSTRAP, SQL, ASP.NET WEBFORM, ASP.NET MVC,, LİNUX, PHP, WİNDOWS SERVER İLE İLGİLENMEKTEYİM.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

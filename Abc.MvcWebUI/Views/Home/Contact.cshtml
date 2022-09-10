@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <title>İletişim</title>
+</head>
+<body>
+    
+
+
+   
+    @using (Html.BeginForm())
+    {
+        
+        <div class="container">
+            <div class="form-group mt-5">
+                <label for="adsoyad">Ad Soyad</label>
+                <input type="text" class="form-control" id="adsoyad" name="adsoyad">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label for="konu">Konu</label>
+                <input type="text" class="form-control" id="konu" name="konu">
+            </div>
+
+            <div class="form-group">
+                <label for="mesaj">Mesaj</label>
+                <textarea type="text" class="form-control" id="mesaj" name="mesaj"></textarea>
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary">Gönder</button>
+        </div>
+        
+        
+    }
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Place sticky footer content here.</span>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</body>
+</html>   
